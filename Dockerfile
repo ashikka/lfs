@@ -1,16 +1,16 @@
 FROM ubuntu:20.04
 
-# install host system requirements ( version-check.sh )
-RUN DEBIAN_FRONTEND=non-interactive \
-        rm /bin/sh && \
-        ln -s /bin/bash /bin/sh && \
-        apt update && \
-        apt install -y \
-            build-essential \
-            bison \
-            gawk \
-            python3 \
-            texinfo
+# install host system requirements ( see version-check.sh )
+ENV DEBIAN_FRONTEND=non-interactive
+RUN rm /bin/sh && \
+    ln -s /bin/bash /bin/sh && \
+    apt update && \
+    apt install -y \
+        build-essential \
+        bison \
+        gawk \
+        python3 \
+        texinfo
 
 # directory to build lfs
 ENV LFS=/lfs
@@ -23,6 +23,7 @@ RUN mkdir $LFS/sources && \
     wget --input-file=wget-list --directory-prefix=$LFS/sources && \
     rm wget-list
 
+# copy build sripts
 COPY scripts scripts
 
 ENTRYPOINT ["/scripts/entrypoint.sh"]
