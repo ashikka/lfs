@@ -27,4 +27,4 @@ RUN mkdir $LFS/sources && \
 # copy build sripts
 COPY scripts scripts
 
-ENTRYPOINT ["/scripts/entrypoint.sh"]
+ENTRYPOINT ["bash", "/scripts/entrypoint.sh"]
