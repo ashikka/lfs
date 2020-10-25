@@ -14,7 +14,7 @@ RUN DEBIAN_FRONTEND=non-interactive \
 
 # directory to build lfs
 ENV LFS=/lfs
-RUN mkdir /lfs
+RUN mkdir -p $LFS
 
 # downloading requirements
 RUN mkdir $LFS/sources && \
@@ -22,3 +22,7 @@ RUN mkdir $LFS/sources && \
     wget http://www.linuxfromscratch.org/lfs/view/stable-systemd/wget-list && \
     wget --input-file=wget-list --directory-prefix=$LFS/sources && \
     rm wget-list
+
+COPY scripts scripts
+
+ENTRYPOINT ["/scripts/entrypoint.sh"]
