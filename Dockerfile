@@ -10,7 +10,8 @@ RUN rm /bin/sh && \
         bison \
         gawk \
         python3 \
-        texinfo
+        texinfo \
+        wget
 
 # directory to build lfs
 ENV LFS=/lfs
