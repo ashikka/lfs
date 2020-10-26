@@ -26,4 +26,4 @@ RUN mkdir -p $LFS/sources && \
 COPY scripts scripts
 
 # start building lfs on docker run
-ENTRYPOINT ["bash", "-e", "/scripts/entrypoint.sh"]
+ENTRYPOINT ["bash", "-ex", "/scripts/entrypoint.sh"]

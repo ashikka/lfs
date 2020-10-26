@@ -10,4 +10,4 @@ jobs:
       - name: Build
         run: |
           cd $GITHUB_WORKSPACE
-          bash -e .github/build/build.sh
+          bash -ex .github/build/build.sh
