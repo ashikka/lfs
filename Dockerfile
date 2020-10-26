@@ -15,11 +15,9 @@ RUN rm /bin/sh && \
 
 # directory to build lfs
 ENV LFS=/lfs
-RUN mkdir -p $LFS
 
 # downloading requirements
-RUN mkdir $LFS/sources && \
-    chmod a+wt $LFS/sources && \
+RUN mkdir -p $LFS/sources && \
     wget http://www.linuxfromscratch.org/lfs/view/10.0-systemd/wget-list && \
     wget --input-file=wget-list --directory-prefix=$LFS/sources && \
     rm wget-list
@@ -27,4 +25,5 @@ RUN mkdir $LFS/sources && \
 # copy build sripts
 COPY scripts scripts
 
+# start building lfs on docker run
 ENTRYPOINT ["bash", "/scripts/entrypoint.sh"]
