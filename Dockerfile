@@ -1,3 +1,4 @@
+# use ubuntu base image
 FROM ubuntu:20.04
 
 # install host system requirements ( see version-check.sh )
@@ -13,17 +14,35 @@ RUN rm /bin/sh && \
         texinfo \
         wget
 
-# directory to build lfs
-ENV LFS=/lfs
-
 # downloading requirements
-RUN mkdir -p $LFS/sources && \
+RUN mkdir -p /lfs/sources && \
     wget http://www.linuxfromscratch.org/lfs/view/10.0-systemd/wget-list && \
-    wget --input-file=wget-list --directory-prefix=$LFS/sources && \
+    wget --input-file=wget-list --directory-prefix=/lfs/sources && \
     rm wget-list
+
+# create fs layout
+RUN mkdir /lfs/{bin,etc,lib,sbin,usr,var} && \
+    case $(uname -m) in   x86_64) mkdir /lfs/lib64 ;; esac && \
+    mkdir /lfs/tools
+
+# set env variables
+ENV BASH_ENV=/root/.bashrc
+RUN printf "set +h \n \
+            LFS=/lfs \n \
+            HOME=/root \n \
+            TERM=xterm \n \
+            PS1='\u:\w\$ ' \n \
+            umask 022 \n \
+            LC_ALL=POSIX \n \
+            LFS_TGT=$(uname -m)-lfs-linux-gnu \n \
+            PATH=/usr/bin \n \
+            if [ ! -L /bin ]; then PATH=/bin:$PATH; fi \n \
+            PATH=$LFS/tools/bin:$PATH \n \
+            export LFS LC_ALL LFS_TGT PATH" > /root/.bashrc && \
+    rm /etc/bash.bashrc
 
 # copy build sripts
 COPY scripts scripts
 
-# start building lfs on docker run
+# build lfs on docker run
 ENTRYPOINT ["bash", "-ex", "/scripts/entrypoint.sh"]
