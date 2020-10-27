@@ -1,8 +1,8 @@
 tar -xf binutils-2.35.tar.xz
 cd binutils-2.35
 
-mkdir -v build
-cd       build
+mkdir build
+cd build
 
 ../configure                   \
     --prefix=/usr              \

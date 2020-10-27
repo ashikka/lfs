@@ -2,16 +2,16 @@ tar -xf gcc-10.2.0.tar.xz
 cd gcc-10.2.0
 
 tar -xf ../mpfr-4.1.0.tar.xz
-mv -v mpfr-4.1.0 mpfr
+mv mpfr-4.1.0 mpfr
 tar -xf ../gmp-6.2.0.tar.xz
-mv -v gmp-6.2.0 gmp
+mv gmp-6.2.0 gmp
 tar -xf ../mpc-1.1.0.tar.gz
-mv -v mpc-1.1.0 mpc
+mv mpc-1.1.0 mpc
 
-mkdir -v build
-cd       build
+mkdir build
+cd build
 
-mkdir -pv $LFS_TGT/libgcc
+mkdir -p $LFS_TGT/libgcc
 ln -s ../../../libgcc/gthr-posix.h $LFS_TGT/libgcc/gthr-default.h
 
 ../configure                                       \
@@ -36,7 +36,7 @@ make
 
 make DESTDIR=$LFS install
 
-ln -sv gcc $LFS/usr/bin/cc
+ln -s gcc $LFS/usr/bin/cc
 
 rm -rf $LFS/sources/gcc-10.2.0
 

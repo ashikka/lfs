@@ -7,6 +7,6 @@ make
 
 make DESTDIR=$LFS install
 
-mv -v $LFS/usr/bin/gzip $LFS/bin
+mv $LFS/usr/bin/gzip $LFS/bin
 
 rm -rf $LFS/sources/gzip-1.10

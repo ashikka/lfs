@@ -11,8 +11,8 @@ make
 
 make DESTDIR=$LFS install
 
-mv -v $LFS/usr/bin/{lzma,unlzma,lzcat,xz,unxz,xzcat}  $LFS/bin
-mv -v $LFS/usr/lib/liblzma.so.*                       $LFS/lib
-ln -svf ../../lib/$(readlink $LFS/usr/lib/liblzma.so) $LFS/usr/lib/liblzma.so
+mv $LFS/usr/bin/{lzma,unlzma,lzcat,xz,unxz,xzcat}  $LFS/bin
+mv $LFS/usr/lib/liblzma.so.*                       $LFS/lib
+ln -sf ../../lib/$(readlink $LFS/usr/lib/liblzma.so) $LFS/usr/lib/liblzma.so
 
 rm -rf $LFS/sources/xz-5.2.5.tar.xz
