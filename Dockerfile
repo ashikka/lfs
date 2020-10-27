@@ -2,7 +2,7 @@
 FROM ubuntu:20.04
 
 # install host system requirements ( see version-check.sh )
-ENV DEBIAN_FRONTEND=non-interactive
+ENV DEBIAN_FRONTEND=noninteractive
 RUN rm /bin/sh && \
     ln -s /bin/bash /bin/sh && \
     apt update && \
@@ -22,7 +22,7 @@ RUN mkdir -p /lfs/sources && \
 
 # create fs layout
 RUN mkdir /lfs/{bin,etc,lib,sbin,usr,var} && \
-    case $(uname -m) in   x86_64) mkdir /lfs/lib64 ;; esac && \
+    case $(uname -m) in x86_64) mkdir /lfs/lib64 ;; esac && \
     mkdir /lfs/tools
 
 # set env variables

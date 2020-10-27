@@ -16,4 +16,3 @@ bash -ex /scripts/chapter-06/tar.sh
 bash -ex /scripts/chapter-06/xz.sh
 bash -ex /scripts/chapter-06/binutils-2.sh
 bash -ex /scripts/chapter-06/gcc-2.sh
-
