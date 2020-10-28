@@ -2,11 +2,10 @@
 FROM ubuntu:20.04
 
 # install host system requirements ( see version-check.sh )
-ENV DEBIAN_FRONTEND=noninteractive
 RUN rm /bin/sh && \
     ln -s /bin/bash /bin/sh && \
     apt update && \
-    apt install -y \
+    DEBIAN_FRONTEND=noninteractive apt install -y \
         build-essential \
         bison \
         gawk \
@@ -26,20 +25,10 @@ RUN mkdir /lfs/{bin,etc,lib,sbin,usr,var} && \
     mkdir /lfs/tools
 
 # set env variables
-ENV BASH_ENV=/root/.bashrc
-RUN printf "set +h \n \
-            LFS=/lfs \n \
-            HOME=/root \n \
-            TERM=xterm \n \
-            PS1='\u:\w\$ ' \n \
-            umask 022 \n \
-            LC_ALL=POSIX \n \
-            LFS_TGT=$(uname -m)-lfs-linux-gnu \n \
-            PATH=/usr/bin:$PATH \n \
-            if [ ! -L /bin ]; then PATH=/bin:$PATH; fi \n \
-            PATH=/lfs/tools/bin:$PATH \n \
-            export LFS LC_ALL LFS_TGT PATH" > /root/.bashrc && \
-    rm /etc/bash.bashrc
+COPY bashrc root/.bashrc
+COPY bash_profile root/.bash_profile
+RUN rm /etc/bash.bashrc && \
+    ln -s /root/.bashrc /etc/bash.bashrc
 
 # copy build sripts
 COPY scripts scripts
