@@ -23,6 +23,3 @@ chroot "$LFS" /usr/bin/env -i          \
     -c "bash -ex /chroot/cleanup.sh"
 
 mv $LFS/chroot chroot
-
-umount $LFS/dev{/pts,}
-umount $LFS/{sys,proc,run}
