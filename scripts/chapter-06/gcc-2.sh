@@ -39,4 +39,3 @@ make DESTDIR=$LFS install
 ln -s gcc $LFS/usr/bin/cc
 
 rm -rf $LFS/sources/gcc-10.2.0
-
