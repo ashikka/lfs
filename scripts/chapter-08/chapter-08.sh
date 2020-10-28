@@ -5,7 +5,7 @@ mount -t proc proc $LFS/proc
 mount -t sysfs sysfs $LFS/sys
 mount -t tmpfs tmpfs $LFS/run
 
-mv chroot $LFS/chroot
+mv /scripts/chapter-08/chroot $LFS/chroot
 
 chroot "$LFS" /usr/bin/env -i   \
     HOME=/root                  \
@@ -22,4 +22,4 @@ chroot "$LFS" /usr/bin/env -i          \
     /bin/bash --login \
     -c "bash -ex /chroot/cleanup.sh"
 
-mv $LFS/chroot chroot
+mv $LFS/chroot /scripts/chapter-08/chroot

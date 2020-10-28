@@ -14,7 +14,7 @@ if [ -h $LFS/dev/shm ]; then
   mkdir -p $LFS/$(readlink $LFS/dev/shm)
 fi
 
-mv chroot $LFS/chroot
+mv /scripts/chapter-07/chroot $LFS/chroot
 
 chroot "$LFS" /usr/bin/env -i   \
     HOME=/root                  \
@@ -24,7 +24,7 @@ chroot "$LFS" /usr/bin/env -i   \
     /bin/bash --login +h \
     -c "bash -ex /chroot/chroot.sh"
 
-mv $LFS/chroot chroot
+mv $LFS/chroot /scripts/chapter-07/chroot
 
 umount $LFS/dev{/pts,}
 umount $LFS/{sys,proc,run}
