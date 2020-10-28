@@ -35,9 +35,9 @@ RUN printf "set +h \n \
             umask 022 \n \
             LC_ALL=POSIX \n \
             LFS_TGT=$(uname -m)-lfs-linux-gnu \n \
-            PATH=/usr/bin \n \
+            PATH=/usr/bin:$PATH \n \
             if [ ! -L /bin ]; then PATH=/bin:$PATH; fi \n \
-            PATH=$LFS/tools/bin:$PATH \n \
+            PATH=/lfs/tools/bin:$PATH \n \
             export LFS LC_ALL LFS_TGT PATH" > /root/.bashrc && \
     rm /etc/bash.bashrc
 
