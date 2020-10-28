@@ -1,2 +1,2 @@
 docker build . -t lfs:latest
-docker run lfs:latest
+docker run --privileged lfs:latest
