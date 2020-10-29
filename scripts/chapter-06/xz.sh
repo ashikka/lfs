@@ -15,4 +15,4 @@ mv $LFS/usr/bin/{lzma,unlzma,lzcat,xz,unxz,xzcat}  $LFS/bin
 mv $LFS/usr/lib/liblzma.so.*                       $LFS/lib
 ln -sf ../../lib/$(readlink $LFS/usr/lib/liblzma.so) $LFS/usr/lib/liblzma.so
 
-rm -rf $LFS/sources/xz-5.2.5.tar.xz
+rm -rf $LFS/sources/xz-5.2.5
