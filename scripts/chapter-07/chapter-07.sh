@@ -16,7 +16,7 @@ fi
 
 mv /scripts/chapter-07/chroot $LFS/chroot
 
-chroot "$LFS" /usr/bin/env -i   \
+/usr/sbin/chroot "$LFS" /usr/bin/env -i   \
     HOME=/root                  \
     TERM="$TERM"                \
     PS1='(lfs chroot) \u:\w\$ ' \

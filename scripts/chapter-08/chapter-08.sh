@@ -7,7 +7,7 @@ mount -t tmpfs tmpfs $LFS/run
 
 mv /scripts/chapter-08/chroot $LFS/chroot
 
-chroot "$LFS" /usr/bin/env -i   \
+/usr/sbin/chroot "$LFS" /usr/bin/env -i   \
     HOME=/root                  \
     TERM="$TERM"                \
     PS1='(lfs chroot) \u:\w\$ ' \
@@ -15,7 +15,7 @@ chroot "$LFS" /usr/bin/env -i   \
     /bin/bash --login +h \
     -c "bash -ex /chroot/chroot.sh"
 
-chroot "$LFS" /usr/bin/env -i          \
+/usr/sbin/chroot "$LFS" /usr/bin/env -i          \
     HOME=/root TERM="$TERM"            \
     PS1='(lfs chroot) \u:\w\$ '        \
     PATH=/bin:/usr/bin:/sbin:/usr/sbin \
