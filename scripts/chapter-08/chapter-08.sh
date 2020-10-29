@@ -15,11 +15,4 @@ mv /scripts/chapter-08/chroot $LFS/chroot
     /bin/bash --login +h \
     -c "bash -ex /chroot/chroot.sh"
 
-/usr/sbin/chroot "$LFS" /usr/bin/env -i          \
-    HOME=/root TERM="$TERM"            \
-    PS1='(lfs chroot) \u:\w\$ '        \
-    PATH=/bin:/usr/bin:/sbin:/usr/sbin \
-    /bin/bash --login \
-    -c "bash -ex /chroot/cleanup.sh"
-
 mv $LFS/chroot /scripts/chapter-08/chroot
