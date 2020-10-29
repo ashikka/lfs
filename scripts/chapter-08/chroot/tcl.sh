@@ -1,5 +1,5 @@
 tar -xf tcl8.6.10-src.tar.gz
-cd tcl8.6.10-src
+cd tcl8.6.10
 
 tar -xf ../tcl8.6.10-html.tar.gz --strip-components=1
 
