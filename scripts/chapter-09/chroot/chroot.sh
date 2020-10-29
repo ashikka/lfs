@@ -1,0 +1,1 @@
+bash -ex /chroot/network-config.sh
