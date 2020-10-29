@@ -29,6 +29,6 @@ mv $LFS/chroot /scripts/chapter-07/chroot
 umount $LFS/dev{/pts,}
 umount $LFS/{sys,proc,run}
 
-strip --strip-debug $LFS/usr/lib/*
-strip --strip-unneeded $LFS/usr/{,s}bin/*
-strip --strip-unneeded $LFS/tools/bin/*
+strip --strip-debug $LFS/usr/lib/* || :
+strip --strip-unneeded $LFS/usr/{,s}bin/* || :
+strip --strip-unneeded $LFS/tools/bin/* || :
