@@ -1,1 +1,0 @@
-bash -ex /chroot/the-end.sh

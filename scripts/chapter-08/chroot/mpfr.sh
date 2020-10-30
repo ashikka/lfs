@@ -1,4 +1,4 @@
-tar -xf mpfr-4.1.0
+tar -xf mpfr-4.1.0.tar.xz
 cd mpfr-4.1.0
 
 ./configure --prefix=/usr        \

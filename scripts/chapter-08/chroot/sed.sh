@@ -1,4 +1,4 @@
-tar -xf sed-4.8
+tar -xf sed-4.8.tar.xz
 cd sed-4.8
 
 ./configure --prefix=/usr --bindir=/bin

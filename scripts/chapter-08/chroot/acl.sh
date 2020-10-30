@@ -1,4 +1,4 @@
-tar -xf acl-2.2.53
+tar -xf acl-2.2.53.tar.gz
 cd acl-2.2.53
 
 ./configure --prefix=/usr         \
