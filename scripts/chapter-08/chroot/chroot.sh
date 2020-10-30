@@ -35,7 +35,7 @@ bash -ex /chroot/libtool.sh
 bash -ex /chroot/gdbm.sh
 bash -ex /chroot/gperf.sh
 bash -ex /chroot/expat.sh
-bash -ex /chroot/inetutils.sh
+bash -ex /chroot/inetutil.sh
 bash -ex /chroot/perl.sh
 bash -ex /chroot/xml-parser.sh
 bash -ex /chroot/intltools.sh
