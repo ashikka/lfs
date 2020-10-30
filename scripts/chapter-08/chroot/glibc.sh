@@ -73,7 +73,7 @@ EOF
 
 tar -xf ../../tzdata2020a.tar.gz
 
-ZONEINFO=/usr/share/zoneinfo
+export ZONEINFO=/usr/share/zoneinfo
 mkdir -p $ZONEINFO/{posix,right}
 
 for tz in etcetera southamerica northamerica europe africa antarctica  \

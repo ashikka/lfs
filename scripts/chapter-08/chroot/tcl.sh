@@ -3,7 +3,7 @@ cd tcl8.6.10
 
 tar -xf ../tcl8.6.10-html.tar.gz --strip-components=1
 
-SRCDIR=$(pwd)
+export SRCDIR=$(pwd)
 cd unix
 ./configure --prefix=/usr           \
             --mandir=/usr/share/man \
