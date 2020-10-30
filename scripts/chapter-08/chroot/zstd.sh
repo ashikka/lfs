@@ -1,4 +1,4 @@
-tar -xf zstd-1.4.5
+tar -xf zstd-1.4.5.tar.gz
 cd zstd-1.4.5
 
 make

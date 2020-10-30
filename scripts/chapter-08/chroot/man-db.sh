@@ -1,4 +1,4 @@
-tar -xvf man-db-2.9.3.tar.xz
+tar -xf man-db-2.9.3.tar.xz
 cd man-db-2.9.3
 sed -i '/find/s@/usr@@' init/systemd/man-db.service.in
 
@@ -12,5 +12,4 @@ sed -i '/find/s@/usr@@' init/systemd/man-db.service.in
             --with-grap=/usr/bin/grap
 make
 make install
-cd /sources
-rm -rf man-db-2.9.3
+rm -rf /sources/man-db-2.9.3

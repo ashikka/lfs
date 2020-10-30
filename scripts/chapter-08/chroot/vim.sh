@@ -1,14 +1,14 @@
-tar -xvf vim-8.2.1361.tar.gz
+tar -xf vim-8.2.1361.tar.gz
 cd vim-8.2.1361
 echo '#define SYS_VIMRC_FILE "/etc/vimrc"' >> src/feature.h
 ./configure --prefix=/usr
 make
 make install
-ln -sv vim /usr/bin/vi
+ln -s vim /usr/bin/vi
 for L in  /usr/share/man/{,*/}man1/vim.1; do
-    ln -sv vim.1 $(dirname $L)/vi.1
+    ln -s vim.1 $(dirname $L)/vi.1
 done
-ln -sv ../vim/vim82/doc /usr/share/doc/vim-8.2.1361
+ln -s ../vim/vim82/doc /usr/share/doc/vim-8.2.1361
 cat > /etc/vimrc << "EOF"
 " Begin /etc/vimrc
 
@@ -26,5 +26,4 @@ endif
 
 " End /etc/vimrc
 EOF
-cd /sources
-rm -rf vim-8.2.1361
+rm -rf /sources/vim-8.2.1361

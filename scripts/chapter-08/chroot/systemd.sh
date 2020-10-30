@@ -1,11 +1,11 @@
-tar -xvf systemd-246.tar.gz
+tar -xf systemd-246.tar.gz
 cd systemd-246
 ln -sf /bin/true /usr/bin/xsltproc
 tar -xf ../systemd-man-pages-246.tar.xz
 sed '177,$ d' -i src/resolve/meson.build
 sed -i 's/GROUP="render", //' rules.d/50-udev-default.rules.in
-mkdir -p build
-cd       build
+mkdir build
+cd    build
 LANG=en_US.UTF-8                    \
 meson --prefix=/usr                 \
       --sysconfdir=/etc             \
@@ -38,5 +38,4 @@ systemd-machine-id-setup
 systemctl preset-all
 systemctl disable systemd-time-wait-sync.service
 rm -f /usr/lib/sysctl.d/50-pid-max.conf
-cd /sources
-rm -rf systemd-246
+rm -rf /sources/systemd-246

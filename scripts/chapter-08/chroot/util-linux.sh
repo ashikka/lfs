@@ -1,6 +1,6 @@
-tar -xvf util-linux-2.36.tar.xz
+tar -xf util-linux-2.36.tar.xz
 cd util-linux-2.36
-mkdir -pv /var/lib/hwclock
+mkdir -p /var/lib/hwclock
 ./configure ADJTIME_PATH=/var/lib/hwclock/adjtime   \
             --docdir=/usr/share/doc/util-linux-2.36 \
             --disable-chfn-chsh  \
@@ -14,5 +14,4 @@ mkdir -pv /var/lib/hwclock
             --without-python
 make
 make install
-cd /sources
-rm -rf util-linux-2.36
+rm -rf /sources/util-linux-2.36
