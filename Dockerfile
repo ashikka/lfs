@@ -20,7 +20,7 @@ RUN mkdir -p /lfs/sources && \
     rm wget-list
 
 # create fs layout
-RUN mkdir /lfs/{bin,etc,lib,sbin,usr,var} && \
+RUN mkdir /lfs/{bin,etc,lib,sbin,usr,var,usr/share} && \
     case $(uname -m) in x86_64) mkdir /lfs/lib64 ;; esac && \
     mkdir /lfs/tools
 
@@ -32,6 +32,9 @@ RUN rm /etc/bash.bashrc && \
 
 # copy build sripts
 COPY scripts scripts
+
+# copy apk package manager
+COPY package-manager/apk.tar.xz lfs/sources/apk.tar.xz
 
 # build lfs on docker run
 ENTRYPOINT ["bash", "-ex", "/scripts/entrypoint.sh"]
