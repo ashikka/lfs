@@ -25,8 +25,8 @@ RUN mkdir /lfs/{bin,etc,lib,sbin,usr,var} && \
     mkdir /lfs/tools
 
 # set env variables
-COPY bashrc root/.bashrc
-COPY bash_profile root/.bash_profile
+COPY configs/bash.bashrc root/.bashrc
+COPY configs/bash.bash_profile root/.bash_profile
 RUN rm /etc/bash.bashrc && \
     ln -s /root/.bashrc /etc/bash.bashrc
 
