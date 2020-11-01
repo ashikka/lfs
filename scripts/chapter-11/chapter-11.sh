@@ -1,4 +1,4 @@
-echo 10.0-systemd > $LFS/etc/lfs-release
+echo "10.0-systemd" > $LFS/etc/lfs-release
 
 cat > $LFS/etc/lsb-release << "EOF"
 DISTRIB_ID="Linux From Scratch"
