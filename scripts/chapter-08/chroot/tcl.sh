@@ -7,7 +7,7 @@ export SRCDIR=$(pwd)
 cd unix
 ./configure --prefix=/usr           \
             --mandir=/usr/share/man \
-            $([ "$(uname -m)" = x86_64 ] && echo --enable-64bit)
+            $([ "$(uname -m)" = x86_64 ] && echo "--enable-64bit")
 
 make
 

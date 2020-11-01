@@ -15,7 +15,7 @@ cd build
 
 make
 
-sed '/test-installation/s@$(PERL)@echo not running@' -i ../Makefile
+sed '/test-installation/s@$(PERL)@echo "not running"@' -i ../Makefile
 
 make install
 

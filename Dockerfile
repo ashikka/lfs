@@ -6,6 +6,7 @@ RUN rm /bin/sh && \
     ln -s /bin/bash /bin/sh && \
     apt update && \
     DEBIAN_FRONTEND=noninteractive apt install -y \
+        # genisoimage \
         build-essential \
         bison \
         gawk \
@@ -16,7 +17,7 @@ RUN rm /bin/sh && \
 # downloading requirements
 RUN mkdir -p /lfs/sources && \
     wget http://www.linuxfromscratch.org/lfs/view/10.0-systemd/wget-list && \
-    echo "https://www.kernel.org/pub/linux/utils/boot/syslinux/syslinux-6.03.tar.xz" >> wget-list && \
+    # echo "https://www.kernel.org/pub/linux/utils/boot/syslinux/syslinux-6.03.tar.xz" >> wget-list && \
     wget --input-file=wget-list --directory-prefix=/lfs/sources && \
     rm wget-list
 

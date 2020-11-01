@@ -6,3 +6,5 @@ cd diffutils-3.7
 make
 
 make DESTDIR=$LFS install
+
+rm -rf $LFS/sources/diffutils-3.7
