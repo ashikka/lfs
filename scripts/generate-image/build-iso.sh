@@ -5,4 +5,4 @@ genisoimage -o $IMAGE_ISO                \
             -c isolinux/boot.cat         \
             -no-emul-boot                \
             -boot-load-size 4            \
-            -boot-info-table image
+            -boot-info-table /image

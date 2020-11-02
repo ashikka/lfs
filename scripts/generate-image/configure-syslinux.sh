@@ -8,7 +8,6 @@ cp bios/com32/elflink/ldlinux/ldlinux.c32 /image/isolinux/ldlinux.c32
 cp ../../boot/vmlinuz-5.8.3-lfs-10.0-systemd /image/isolinux/vmlinuz
 
 cat > /image/isolinux/isolinux.cfg << "EOF"
-PROMT 0
 DEFAULT bz2
 LABEL bz2
     MENU LABEL Bz2 Image of RAM disk
