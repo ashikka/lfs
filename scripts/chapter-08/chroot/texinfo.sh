@@ -1,5 +1,5 @@
 tar -xf texinfo-6.7.tar.xz
-cd texinfo-6.7.tar.xz
+cd texinfo-6.7
 ./configure --prefix=/usr --disable-static
 make
 make install
@@ -11,4 +11,4 @@ pushd /usr/share/info
     install-info $f dir || :
   done
 popd
-rm -rf /sources/texinfo-6.7.tar.xz
+rm -rf /sources/texinfo-6.7

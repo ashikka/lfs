@@ -15,6 +15,8 @@ cd /image
 bash -ex /scripts/generate-image/create-ramdisk.sh
 bash -ex /scripts/generate-image/build-iso.sh
 
+cp $IMAGE_ISO /lfs-10.0-systemd.iso
+
 unset LOOP
 unset IMAGE_RAM
 unset IMAGE_SIZE
@@ -23,3 +25,4 @@ unset IMAGE_BZ2
 unset IMAGE_ISO
 
 rm -rf /image
+rm -rf /dist
