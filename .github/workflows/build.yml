@@ -1,13 +1,36 @@
-name: Build
-on:
+'on':
   push:
-    branches: [ master ]
+    tags:
+      - v*
+      - V*
+name: Upload Release Asset
 jobs:
-  update:
+  build:
+    name: Upload Release Asset
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Build
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Build project
         run: |
-          cd $GITHUB_WORKSPACE
           bash -ex .github/build/build.sh
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
+        with:
+          tag_name: '${{ github.ref }}'
+          release_name: 'Release ${{ github.ref }}'
+          draft: false
+          prerelease: false
+      - name: Upload Release Asset
+        id: upload-release-asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
+        with:
+          upload_url: '${{ steps.create_release.outputs.upload_url }}'
+          asset_path: ./lfs.zip
+          asset_name: lfs.zip
+          asset_content_type: application/zip
