@@ -68,7 +68,7 @@ bash -ex /chroot/texinfo.sh
 bash -ex /chroot/vim.sh
 bash -ex /chroot/systemd.sh
 bash -ex /chroot/dbus.sh
-bash -ex /chroot/pcorps-ng.sh
+bash -ex /chroot/procps-ng.sh
 bash -ex /chroot/util-linux.sh
 bash -ex /chroot/e2fsprogs.sh
 bash -ex /chroot/cleanup.sh
